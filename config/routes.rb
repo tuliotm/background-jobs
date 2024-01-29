@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => "/sidekiq"
+
   get 'welcome/index'
   get 'welcome/without_background_job'
   get 'welcome/with_background_job'
